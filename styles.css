@@ -1,3 +1,20 @@
 body {
-    background-color: rgb(168, 250, 219);
+    background-color: rgb(233, 247, 232);
+    color: black;
+}
+#calc-outer {
+    background-color: rgb(223, 253, 198);
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+#calc-inner {
+    background-color: rgb(143, 196, 156);
+    margin: 10px;
+}
+.buttons {
+    display: block;
+}
+button {
+    display: inline;
 }
