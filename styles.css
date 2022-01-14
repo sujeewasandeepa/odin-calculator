@@ -7,14 +7,22 @@ body {
     width: 50%;
     margin: auto;
     text-align: center;
+    height: 500px;
 }
 #calc-inner {
     background-color: rgb(143, 196, 156);
-    margin: 10px;
+    margin: 50px;
+    height: 400px;
+}
+textarea {
+    width: 80%;
+    margin: 20px;
 }
 .buttons {
     display: block;
 }
 button {
     display: inline;
+    width: 80px;
+    height: 60px;
 }

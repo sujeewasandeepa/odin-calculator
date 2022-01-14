@@ -1,3 +1,30 @@
+const clearBtn     = document.querySelector('#clearBtn');
+const quotientBtn  = document.querySelector('#quotientBtn');
+const divisionBtn  = document.querySelector('#divisionBtn');
+const multiplyBtn  = document.querySelector('#multiplyBtn');
+const substractBtn = document.querySelector('#substractBtn');
+const addBtn       = document.querySelector('#addBtn');
+const equalBtn     = document.querySelector('#equalBtn');
+
+const sevenBtn = document.querySelector('#sevenBtn');
+const eightBtn = document.querySelector('#eightBtn');
+const nineBtn  = document.querySelector('#nineBtn');
+const fourBtn  = document.querySelector('#fourBtn');
+const fiveBtn  = document.querySelector('#fiveBtn');
+const sixBtn   = document.querySelector('#sixBtn');
+const oneBtn   = document.querySelector('#oneBtn');
+const twoBtn   = document.querySelector('#twoBtn');
+const threeBtn = document.querySelector('#threeBtn');
+const zeroBtn  = document.querySelector('#zeroBtn');
+
+const displayArea = document.querySelector('#displayArea');
+
+
+oneBtn.addEventListener('click', () => {
+    displayArea.innerText = '1';
+});
+
+
 // basic functions
 function add (a, b) {
     return a + b;
@@ -33,6 +60,15 @@ function operate(operator, num1, num2) {
         return "something is wrong";
     }
 }
+
+
+function populateDisplay() {
+    
+}
+
+
+
+
 
 
 // ***         testing         *** //
