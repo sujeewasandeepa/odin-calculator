@@ -23,48 +23,83 @@ const displayArea = document.querySelector('#displayArea');
 const buttons = document.querySelector('button');
 
 let num1 = 0;
-let addBtnPressed = false;
+let operatorBtnPressed = false;
+let lastOperator = null;
 
+()=> displayArea.value='';
 
 // implementing buttons
 // numerics (0 - 9)
 
 oneBtn.addEventListener('click', () => {
-    displayArea.value += oneBtn.value; enableButtons();
+    if (operatorBtnPressed) {
+        manageOperator(oneBtn);
+    } else {
+        displayArea.value += oneBtn.value; enableButtons();
+    }
 });
 twoBtn.addEventListener('click', () => {
-    displayArea.value += twoBtn.value; enableButtons();
+    if (operatorBtnPressed) {
+        manageOperator(twoBtn);
+    } else {
+        displayArea.value += twoBtn.value; enableButtons();
+    }
 });
 threeBtn.addEventListener('click', () => {
-    displayArea.value += threeBtn.value; enableButtons();
+    if (operatorBtnPressed) {
+        manageOperator(threeBtn);
+    } else {
+        displayArea.value += threeBtn.value; enableButtons();
+    }
 });
 fourBtn.addEventListener('click', () => {
-    displayArea.value += fourBtn.value; enableButtons();
+    if (operatorBtnPressed) {
+        manageOperator(fourBtn);
+    } else {
+        displayArea.value += fourBtn.value; enableButtons();
+    }
 });
 fiveBtn.addEventListener('click', () => {
-    displayArea.value += fiveBtn.value; enableButtons();
+    if (operatorBtnPressed) {
+        manageOperator(fiveBtn);
+    } else {
+        displayArea.value += fiveBtn.value; enableButtons();
+    }
 });
 sixBtn.addEventListener('click', () => {
-    displayArea.value += sixBtn.value; enableButtons();
+    if (operatorBtnPressed) {
+        manageOperator(sixBtn);
+    } else {
+        displayArea.value += sixBtn.value; enableButtons();
+    }
 });
 sevenBtn.addEventListener('click', () => {
-    if (addBtnPressed) {
-        addBtnPressed = false;
-        const sum = operate('+', num1, sevenBtn.value);
-        displayArea.value = sum;
-        enableButtons();
+    if (operatorBtnPressed) {
+        manageOperator(sevenBtn);
     } else {
         displayArea.value += sevenBtn.value; enableButtons();
     }
 });
 eightBtn.addEventListener('click', () => {
-    displayArea.value += eightBtn.value; enableButtons();
+    if (operatorBtnPressed) {
+        manageOperator(eightBtn);
+    } else {
+        displayArea.value += eightBtn.value; enableButtons();
+    }
 });
 nineBtn.addEventListener('click', () => {
-    displayArea.value += nineBtn.value; enableButtons();
+    if (operatorBtnPressed) {
+        manageOperator(nineBtn);
+    } else {
+        displayArea.value += nineBtn.value; enableButtons();
+    }
 });
 zeroBtn.addEventListener('click', () => {
-    displayArea.value += zeroBtn.value; enableButtons();
+    if (operatorBtnPressed) {
+        manageOperator(zeroBtn);
+    } else {
+        displayArea.value += zeroBtn.value; enableButtons();
+    }
 });
 
 
@@ -73,8 +108,10 @@ zeroBtn.addEventListener('click', () => {
 addBtn.addEventListener('click', () => {
     num1 = displayArea.value;
     disableButtons();
-    addBtnPressed = true;
+    operatorBtnPressed = true;
+    lastOperator = '+';
 })
+
 
 // clear button
 clearBtn.addEventListener('click', () => displayArea.value = '');
@@ -83,23 +120,43 @@ clearBtn.addEventListener('click', () => displayArea.value = '');
 // operate function
 // this function manages all the numerical operations
 // for any two numbers.
+function manageOperator(button) {
+    operatorBtnPressed = false;
+    operate(lastOperator, num1, button.value);
+    enableButtons();
+}
+
 function operate(operator, num1, num2) {
     if (operator === "+") {
-        return add(num1, num2);
+        let val = add(num1, num2);
+        displayArea.value = val;
+        lastOperator = null;
     }
     else if (operator === "-") {
-        return substract(num1, num2);
+        let val = substract(num1, num2);
+        displayArea.value = val;
+        lastOperator = null;        
     }
     else if (operator === "*") {
-        return multiply(num1, num2);
+        let val = multiply(num1, num2);
+        displayArea.value = val;
+        lastOperator = null;
     }
     else if (operator === "/") {
-        return divide(num1, num2);
+        let val = divide(num1, num2);
+        displayArea.value = val;
+        lastOperator = null;
     }
     else if (operator === "%") {
-        return getQuotient(num1, num2);
+        let val = getQuotient(num1, num2);
+        displayArea.value = val;
+        lastOperator = null;
     }
+    else if (operator == null) {
+        console.log('operator is null.');
+    } 
     else {
+        lastOperator = null;
         return "something is wrong";
     }
 }
@@ -137,36 +194,3 @@ function enableButtons() {
         specialButtons[i].disabled = false;
     }
 }
-
-
-
-
-
-// ***         testing         *** //
-
-
-// testing add function
-const sum = add(3, 4);
-console.log(sum);
-
-// testing substract function
-const remainder = substract(10, 5);
-console.log(remainder);
-
-// testing multiply function
-const product = multiply(2, 5);
-console.log(product);
-
-// testing divide function
-const quotient = divide(100, 5);
-console.log(quotient);
-const quotient_ = divide(10, 0);
-console.log(quotient_);
-
-// testing the operate function
-const operated1 = operate("+", 5, 2);
-console.log("operated 1: " + operated1);
-const operatedDivisionNonZero = operate("/", 10, 2);
-console.log(operatedDivisionNonZero);
-const operatedDivisionZero = operate("/", 5, 0);
-console.log(operatedDivisionZero);
