@@ -159,8 +159,9 @@ addBtn.addEventListener('click', () => {
 
 // implementing substraction
 substractBtn.addEventListener('click', () => {
-    num1 = displayArea.value;
+    number1 = displayArea.value;
     disableButtons();
+    displayArea.value = '';
     operatorBtnPressed = true;
     lastOperator = '-';
 });
