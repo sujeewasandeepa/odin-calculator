@@ -166,7 +166,14 @@ substractBtn.addEventListener('click', () => {
     lastOperator = '-';
 });
 
-
+// implementing multiplication
+multiplyBtn.addEventListener('click', () => {
+    number1 = displayArea.value;
+    disableButtons();
+    displayArea.value = '';
+    operatorBtnPressed = true;
+    lastOperator = '*';
+});
 // operate function
 // this function manages all the numerical operations
 // for any two numbers.
