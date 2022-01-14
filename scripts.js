@@ -22,83 +22,127 @@ const zeroBtn = document.querySelector('#zeroBtn');
 const displayArea = document.querySelector('#displayArea');
 const buttons = document.querySelector('button');
 
-let num1 = 0;
+let number1 = 0;
+let number2 = 0;
 let operatorBtnPressed = false;
 let lastOperator = null;
 
-()=> displayArea.value='';
+() => displayArea.value = '';
+
+equalBtn.addEventListener('click', () => {
+    operate(lastOperator, number1, number2);
+})
+
+// clear button
+clearBtn.addEventListener('click', () => {
+    displayArea.value = '';
+    number1 = 0;
+    number2 = 0;
+    operatorBtnPressed = false;
+    lastOperator = null;
+});
+
 
 // implementing buttons
 // numerics (0 - 9)
 
 oneBtn.addEventListener('click', () => {
+    enableButtons();
     if (operatorBtnPressed) {
-        manageOperator(oneBtn);
+        displayArea.value += oneBtn.value;
+        number2 += oneBtn.value;
     } else {
-        displayArea.value += oneBtn.value; enableButtons();
+        displayArea.value += oneBtn.value;
     }
 });
+
 twoBtn.addEventListener('click', () => {
+    enableButtons();
     if (operatorBtnPressed) {
-        manageOperator(twoBtn);
+        displayArea.value += twoBtn.value;
+        number2 += twoBtn.value;
     } else {
-        displayArea.value += twoBtn.value; enableButtons();
+        displayArea.value += twoBtn.value;
     }
 });
+
 threeBtn.addEventListener('click', () => {
+    enableButtons();
     if (operatorBtnPressed) {
-        manageOperator(threeBtn);
+        displayArea.value += threeBtn.value;
+        number2 += threeBtn.value;
     } else {
-        displayArea.value += threeBtn.value; enableButtons();
+        displayArea.value += threeBtn.value;
     }
 });
+
 fourBtn.addEventListener('click', () => {
+    enableButtons();
     if (operatorBtnPressed) {
-        manageOperator(fourBtn);
+        displayArea.value += fourBtn.value;
+        number2 += fourBtn.value;
     } else {
-        displayArea.value += fourBtn.value; enableButtons();
+        displayArea.value += fourBtn.value;
     }
 });
+
 fiveBtn.addEventListener('click', () => {
+    enableButtons();
     if (operatorBtnPressed) {
-        manageOperator(fiveBtn);
+        displayArea.value += fiveBtn.value;
+        number2 += fiveBtn.value;
     } else {
-        displayArea.value += fiveBtn.value; enableButtons();
+        displayArea.value += fiveBtn.value;
     }
 });
+
 sixBtn.addEventListener('click', () => {
+    enableButtons();
     if (operatorBtnPressed) {
-        manageOperator(sixBtn);
+        displayArea.value += sixBtn.value;
+        number2 += sixBtn.value;
     } else {
-        displayArea.value += sixBtn.value; enableButtons();
+        displayArea.value += sixBtn.value;
     }
 });
+
 sevenBtn.addEventListener('click', () => {
+    enableButtons();
     if (operatorBtnPressed) {
-        manageOperator(sevenBtn);
+        displayArea.value += sevenBtn.value;
+        number2 += sevenBtn.value;
     } else {
-        displayArea.value += sevenBtn.value; enableButtons();
+        displayArea.value += sevenBtn.value;
     }
 });
+
 eightBtn.addEventListener('click', () => {
+    enableButtons();
     if (operatorBtnPressed) {
-        manageOperator(eightBtn);
+        displayArea.value += eightBtn.value;
+        number2 += eightBtn.value;
     } else {
-        displayArea.value += eightBtn.value; enableButtons();
+        displayArea.value += eightBtn.value;
     }
 });
+
 nineBtn.addEventListener('click', () => {
+    enableButtons();
     if (operatorBtnPressed) {
-        manageOperator(nineBtn);
+        displayArea.value += nineBtn.value;
+        number2 += nineBtn.value;
     } else {
-        displayArea.value += nineBtn.value; enableButtons();
+        displayArea.value += nineBtn.value;
     }
 });
+
 zeroBtn.addEventListener('click', () => {
+    enableButtons();
     if (operatorBtnPressed) {
-        manageOperator(zeroBtn);
+        displayArea.value += zeroBtn.value;
+        number2 += zeroBtn.value;
     } else {
-        displayArea.value += zeroBtn.value; enableButtons();
+        displayArea.value += zeroBtn.value;
     }
 });
 
@@ -106,26 +150,25 @@ zeroBtn.addEventListener('click', () => {
 // operations
 // implementing addition
 addBtn.addEventListener('click', () => {
+    number1 = displayArea.value;
+    disableButtons();
+    displayArea.value = '';
+    operatorBtnPressed = true;
+    lastOperator = '+';
+});
+
+// implementing substraction
+substractBtn.addEventListener('click', () => {
     num1 = displayArea.value;
     disableButtons();
     operatorBtnPressed = true;
-    lastOperator = '+';
-})
-
-
-// clear button
-clearBtn.addEventListener('click', () => displayArea.value = '');
+    lastOperator = '-';
+});
 
 
 // operate function
 // this function manages all the numerical operations
 // for any two numbers.
-function manageOperator(button) {
-    operatorBtnPressed = false;
-    operate(lastOperator, num1, button.value);
-    enableButtons();
-}
-
 function operate(operator, num1, num2) {
     if (operator === "+") {
         let val = add(num1, num2);
@@ -135,7 +178,7 @@ function operate(operator, num1, num2) {
     else if (operator === "-") {
         let val = substract(num1, num2);
         displayArea.value = val;
-        lastOperator = null;        
+        lastOperator = null;
     }
     else if (operator === "*") {
         let val = multiply(num1, num2);
@@ -154,7 +197,7 @@ function operate(operator, num1, num2) {
     }
     else if (operator == null) {
         console.log('operator is null.');
-    } 
+    }
     else {
         lastOperator = null;
         return "something is wrong";
