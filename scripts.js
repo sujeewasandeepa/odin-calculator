@@ -174,6 +174,25 @@ multiplyBtn.addEventListener('click', () => {
     operatorBtnPressed = true;
     lastOperator = '*';
 });
+
+// implementing division
+divisionBtn.addEventListener('click', () => {
+    number1 = displayArea.value;
+    disableButtons();
+    displayArea.value = '';
+    operatorBtnPressed = true;
+    lastOperator = '/';
+})
+
+// implementing quotient
+quotientBtn.addEventListener('click', () => {
+    number1 = displayArea.value;
+    disableButtons();
+    displayArea.value = '';
+    operatorBtnPressed = true;
+    lastOperator = '%';
+})
+
 // operate function
 // this function manages all the numerical operations
 // for any two numbers.
