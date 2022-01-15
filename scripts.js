@@ -7,6 +7,7 @@ const addBtn = document.querySelector('#addBtn');
 const equalBtn = document.querySelector('#equalBtn');
 
 const specialButtons = document.querySelectorAll('.specialButtons');
+const secondSpecialButtons = document.querySelectorAll('.secondSpecial');
 
 const sevenBtn = document.querySelector('#sevenBtn');
 const eightBtn = document.querySelector('#eightBtn');
@@ -31,6 +32,9 @@ let lastOperator = null;
 
 equalBtn.addEventListener('click', () => {
     operate(lastOperator, number1, number2);
+    enableSecondSpecial();
+    number1 = 0;
+    number2 = 0;
 })
 
 // clear button
@@ -51,6 +55,7 @@ oneBtn.addEventListener('click', () => {
     if (operatorBtnPressed) {
         displayArea.value += oneBtn.value;
         number2 += oneBtn.value;
+        disableSecondSpecial();
     } else {
         displayArea.value += oneBtn.value;
     }
@@ -61,6 +66,7 @@ twoBtn.addEventListener('click', () => {
     if (operatorBtnPressed) {
         displayArea.value += twoBtn.value;
         number2 += twoBtn.value;
+        disableSecondSpecial();
     } else {
         displayArea.value += twoBtn.value;
     }
@@ -71,6 +77,7 @@ threeBtn.addEventListener('click', () => {
     if (operatorBtnPressed) {
         displayArea.value += threeBtn.value;
         number2 += threeBtn.value;
+        disableSecondSpecial();
     } else {
         displayArea.value += threeBtn.value;
     }
@@ -81,6 +88,7 @@ fourBtn.addEventListener('click', () => {
     if (operatorBtnPressed) {
         displayArea.value += fourBtn.value;
         number2 += fourBtn.value;
+        disableSecondSpecial();
     } else {
         displayArea.value += fourBtn.value;
     }
@@ -91,6 +99,7 @@ fiveBtn.addEventListener('click', () => {
     if (operatorBtnPressed) {
         displayArea.value += fiveBtn.value;
         number2 += fiveBtn.value;
+        disableSecondSpecial();
     } else {
         displayArea.value += fiveBtn.value;
     }
@@ -101,6 +110,7 @@ sixBtn.addEventListener('click', () => {
     if (operatorBtnPressed) {
         displayArea.value += sixBtn.value;
         number2 += sixBtn.value;
+        disableSecondSpecial();
     } else {
         displayArea.value += sixBtn.value;
     }
@@ -111,6 +121,7 @@ sevenBtn.addEventListener('click', () => {
     if (operatorBtnPressed) {
         displayArea.value += sevenBtn.value;
         number2 += sevenBtn.value;
+        disableSecondSpecial();
     } else {
         displayArea.value += sevenBtn.value;
     }
@@ -121,6 +132,7 @@ eightBtn.addEventListener('click', () => {
     if (operatorBtnPressed) {
         displayArea.value += eightBtn.value;
         number2 += eightBtn.value;
+        disableSecondSpecial();
     } else {
         displayArea.value += eightBtn.value;
     }
@@ -131,6 +143,7 @@ nineBtn.addEventListener('click', () => {
     if (operatorBtnPressed) {
         displayArea.value += nineBtn.value;
         number2 += nineBtn.value;
+        disableSecondSpecial();
     } else {
         displayArea.value += nineBtn.value;
     }
@@ -141,6 +154,7 @@ zeroBtn.addEventListener('click', () => {
     if (operatorBtnPressed) {
         displayArea.value += zeroBtn.value;
         number2 += zeroBtn.value;
+        disableSecondSpecial();
     } else {
         displayArea.value += zeroBtn.value;
     }
@@ -262,5 +276,15 @@ function disableButtons() {
 function enableButtons() {
     for (let i = 0; i < specialButtons.length; i++) {
         specialButtons[i].disabled = false;
+    }
+}
+function enableSecondSpecial() {
+    for (let i=0; i < secondSpecialButtons.length; i++) {
+        secondSpecialButtons[i].disabled = false;
+    }
+}
+function disableSecondSpecial() {
+    for (let i=0; i < secondSpecialButtons.length; i++) {
+        secondSpecialButtons[i].disabled = true;
     }
 }

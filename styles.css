@@ -1,16 +1,21 @@
 body {
-    background-color: rgb(233, 247, 232);
+    background-color: white;
     color: black;
 }
 #calc-outer {
-    background-color: rgb(223, 253, 198);
+    background-color: whitesmoke;
     width: 50%;
     margin: auto;
     text-align: center;
-    height: 500px;
+    height: 550px;
 }
+h1 {
+    padding-top: 30px;
+    color: grey;
+}
+
 #calc-inner {
-    background-color: rgb(143, 196, 156);
+    background-color: #dddddd;
     margin: auto;
     height: 400px;
     width: 70%;
@@ -30,10 +35,10 @@ button {
     background-color: white;
 }
 button:hover {
-    background-color: green;
+    background-color: #c4c4c4;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
     #calc-outer {
         width: 90%;
     }
